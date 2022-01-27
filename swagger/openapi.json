@@ -1,0 +1,99 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Slim OpenApi Introduction",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8081"
+        }
+    ],
+    "paths": {
+        "/cliente": {
+            "get": {
+                "tags": [
+                    "Cliente"
+                ],
+                "parameters": [
+                    {
+                        "name": "cnpj",
+                        "in": "query",
+                        "description": "At the end of the endpoint url, pass the cnpj of the client you want to query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Customer list by cnpj"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cliente"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cnpj": {
+                                        "type": "string"
+                                    },
+                                    "idtipopessoa": {
+                                        "type": "integer"
+                                    },
+                                    "idtipocontribuinte": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Customer register"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Cliente": {
+                "title": "Pessoa",
+                "description": "Model gives table person",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": true,
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Gazin Atacado"
+                    },
+                    "cnpj": {
+                        "type": "string",
+                        "example": "77.941.490/0077-53"
+                    },
+                    "idtipopessoa": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "idtipocontribuinte": {
+                        "type": "integer",
+                        "example": 3
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
