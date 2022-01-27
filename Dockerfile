@@ -1,6 +1,5 @@
 FROM php:8.0.9-fpm
 
-LABEL maintainer="Devops <devops@gazin.com.br>"
 
 RUN usermod -u 1000 -s /bin/bash www-data && groupmod -g 1000 www-data
 
