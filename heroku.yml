@@ -1,5 +1,4 @@
-version: "3.5"
-services:
+
   app:
     container_name: teste
     image: testeapi
@@ -16,8 +15,3 @@ services:
     networks:
       - tigeratacado
 
-
-networks:
-  tigeratacado:
-    name: teste
-    driver: bridge
